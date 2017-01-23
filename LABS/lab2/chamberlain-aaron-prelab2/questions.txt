@@ -1,0 +1,14 @@
+Aaron Chamberlain
+CSE310 Lab 2-Adder
+
+1) Is there any information the TA should know while evaluating your design?
+There should be no additional information necessary, as the files all follow the given naming pattern. The standard verilog syntax has also been used.
+
+2) Does your design completely meet the assignment's requirements? Explain.
+Our design completely meets the requirements specified in the lab. It consists of the 4 modules: add, shifter, big_number_first and float_add. Each of these modules performs the task as written in the lab itself. The adder simply adds the Mantissa (or rightmost 5 bits). Shifter takes has three inputs, one is the value we wish to shift and the others are modifiers of that value. Big number first simply observes the exponent (leftmost 3 bits) of an 8-bit value and reassigns them to different outputs dependent on which value is larger. Float_add combines all these modules together to produce a full floating point adder. Most notably it also fullfills the parameter of being a full saturation adder, where rather than adding bits to the output in the case of an overflow error (where 3'b111 & 3'b111 are added together for example), the output simply becomes the standard 8-Bit output, but full of only 1's. 
+
+3) If it does what tests did you run to prove to yourself that the design worked?
+Test benches were written for every single module from the bottom up. Each of these tests considered several cases, and all passed. Once the lower level modules passed to our liking, then float_add was implemeneted, which also includes a test bench with several cases that all test the modules requirements. For example, there is an explicit test to verify that full saturation occurs in the case of overflow errors. 
+
+4) Do you have any feedback on the lab?
+Nope. The lab is a nice simple implementation of a basic logic structure, and the manual does a good job of breaking it down to smaller blocks. 
